@@ -1,0 +1,25 @@
+<div class="toppingsHeader">Popular 20 toppings:</div>
+
+<div *ngIf="dataLoaded">
+  <div class="toppingWrapper">
+    <mat-card class="toppings-card" *ngFor="let topping of topToppings">
+      <mat-card-header>
+        <div mat-card-avatar class="toppings-header-image"></div>
+        <mat-card-title>{{ topping.topping | titlecase }}</mat-card-title>
+        <mat-card-subtitle>
+          <mat-icon aria-hidden="false" aria-label="Example home icon">stars icon</mat-icon>{{topping.rank}}
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">Order</button>
+        <button mat-raised-button>Add Topping</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<div *ngIf="!dataLoaded">
+  <mat-spinner style="margin:0 auto;" mode="indeterminate"></mat-spinner>
+</div>
